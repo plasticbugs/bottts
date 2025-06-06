@@ -1,6 +1,6 @@
 {
   "name": "@plasticbugs/bottts",
-  "version": "2.0.0-alpha.1",
+  "version": "2.0.0-alpha.2",
   "description": "Modern React 19 fork of bottts - customizable bot avatar components with TypeScript and Next.js support",
   "type": "module",
   "main": "./dist/index.cjs",
