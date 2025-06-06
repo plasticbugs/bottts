@@ -61,7 +61,7 @@ function MyComponent() {
 ### Using Individual Pieces
 
 ```tsx
-import { Piece } from 'bottts'
+import { Piece } from '@plasticbugs/bottts'
 
 function BotParts() {
   return (
@@ -94,7 +94,7 @@ function BotParts() {
 ### With Context for Dynamic Updates
 
 ```tsx
-import { BotProvider, useBotContext } from 'bottts'
+import { BotProvider, useBotContext } from '@plasticbugs/bottts'
 
 function BotCustomizer() {
   const { eyeType, updateOptions } = useBotContext()
@@ -252,7 +252,7 @@ Bottts is fully compatible with Next.js applications:
 
 ```tsx
 // pages/index.tsx or app/page.tsx
-import { Bot } from 'bottts'
+import { Bot } from '@plasticbugs/bottts'
 
 export default function HomePage() {
   return (
@@ -283,7 +283,7 @@ The library is designed to work seamlessly with server-side rendering:
 Bottts is built with TypeScript and provides complete type definitions:
 
 ```tsx
-import type { BotProps, PieceProps, BotStyle, EyeType } from 'bottts'
+import type { BotProps, PieceProps, BotStyle, EyeType } from '@plasticbugs/bottts'
 
 const botConfig: BotProps = {
   botStyle: 'Circle', // ✅ Type-safe
