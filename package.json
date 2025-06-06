@@ -58,7 +58,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:plasticbugs/bottts.git"
+    "url": "git+ssh://git@github.com/plasticbugs/bottts.git"
   },
   "author": "plasticbugs <scottmosch@gmail.com>",
   "contributors": [

@@ -53,7 +53,7 @@ interface BotProviderProps {
     children: ReactNode;
     initialOptions?: Partial<BotOptions>;
 }
-declare function BotProvider({ children, initialOptions }: BotProviderProps): react_jsx_runtime.JSX.Element;
+declare function BotProvider({ children, initialOptions, }: BotProviderProps): react_jsx_runtime.JSX.Element;
 declare function useBotContext(): BotContextValue;
 
 interface CircleColorProps {
@@ -61,7 +61,7 @@ interface CircleColorProps {
     color?: CircleColor$1;
     children: ReactNode;
 }
-declare function CircleColor({ maskID, color, children }: CircleColorProps): react_jsx_runtime.JSX.Element;
+declare function CircleColor({ maskID, color, children, }: CircleColorProps): react_jsx_runtime.JSX.Element;
 
 declare function Eyes(): react_jsx_runtime.JSX.Element | null;
 

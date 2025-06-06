@@ -3,6 +3,7 @@ import {
   useContext,
   useState,
   useCallback,
+  useEffect,
   ReactNode,
 } from 'react'
 import type { BotOptions } from '../types'
@@ -41,6 +42,14 @@ export function BotProvider({
     ...defaultOptions,
     ...initialOptions,
   })
+
+  // Update options when initialOptions change (for Storybook controls)
+  useEffect(() => {
+    setOptions({
+      ...defaultOptions,
+      ...initialOptions,
+    })
+  }, [initialOptions])
 
   const updateOptions = useCallback((updates: Partial<BotOptions>) => {
     setOptions(prev => ({ ...prev, ...updates }))
