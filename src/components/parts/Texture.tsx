@@ -144,92 +144,6 @@ const TextureDirty02 = ({ id, maskId }: TextureComponentProps) => (
   </g>
 )
 
-// For now, use simplified placeholders for the very large texture files
-// These can be updated later with full implementations
-const TextureCamo01 = ({ id, maskId }: TextureComponentProps) => (
-  <g
-    id={id}
-    mask={maskId ? `url(#${maskId})` : undefined}
-    stroke="none"
-    strokeWidth="1"
-    fill="none"
-    fillRule="evenodd"
-  >
-    <rect
-      id="Camo-Placeholder"
-      fillOpacity="0.2"
-      fill="#4CAF50"
-      x="0"
-      y="0"
-      width="100%"
-      height="100%"
-    />
-  </g>
-)
-
-const TextureCamo02 = ({ id, maskId }: TextureComponentProps) => (
-  <g
-    id={id}
-    mask={maskId ? `url(#${maskId})` : undefined}
-    stroke="none"
-    strokeWidth="1"
-    fill="none"
-    fillRule="evenodd"
-  >
-    <rect
-      id="Camo-Placeholder"
-      fillOpacity="0.2"
-      fill="#8BC34A"
-      x="0"
-      y="0"
-      width="100%"
-      height="100%"
-    />
-  </g>
-)
-
-const TextureGrunge01 = ({ id, maskId }: TextureComponentProps) => (
-  <g
-    id={id}
-    mask={maskId ? `url(#${maskId})` : undefined}
-    stroke="none"
-    strokeWidth="1"
-    fill="none"
-    fillRule="evenodd"
-  >
-    <rect
-      id="Grunge-Placeholder"
-      fillOpacity="0.3"
-      fill="#795548"
-      x="0"
-      y="0"
-      width="100%"
-      height="100%"
-    />
-  </g>
-)
-
-const TextureGrunge02 = ({ id, maskId }: TextureComponentProps) => (
-  <g
-    id={id}
-    mask={maskId ? `url(#${maskId})` : undefined}
-    stroke="none"
-    strokeWidth="1"
-    fill="none"
-    fillRule="evenodd"
-  >
-    <rect
-      id="Grunge-Placeholder"
-      fillOpacity="0.3"
-      fill="#5D4037"
-      x="0"
-      y="0"
-      width="100%"
-      height="100%"
-    />
-  </g>
-)
-
 const textureComponents: Record<
   TextureType,
   ComponentType<TextureComponentProps>
@@ -239,10 +153,6 @@ const textureComponents: Record<
   Dots: TextureDots,
   Dirty01: TextureDirty01,
   Dirty02: TextureDirty02,
-  Camo01: TextureCamo01,
-  Camo02: TextureCamo02,
-  Grunge01: TextureGrunge01,
-  Grunge02: TextureGrunge02,
 }
 
 export function Texture({ maskId }: { maskId?: string }) {

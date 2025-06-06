@@ -197,17 +197,7 @@ const meta: Meta<typeof Bot> = {
     },
     textureType: {
       control: { type: 'select' },
-      options: [
-        'None',
-        'Circuits',
-        'Dots',
-        'Dirty01',
-        'Dirty02',
-        'Camo01',
-        'Camo02',
-        'Grunge01',
-        'Grunge02',
-      ],
+      options: ['None', 'Circuits', 'Dots', 'Dirty01', 'Dirty02'],
       description: 'The texture overlay for the bot face',
     },
     size: {

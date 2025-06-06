@@ -46,16 +46,7 @@ export type FaceType =
 
 export type FaceColor = CircleColor
 
-export type TextureType =
-  | 'Camo01'
-  | 'Camo02'
-  | 'Circuits'
-  | 'Dirty01'
-  | 'Dirty02'
-  | 'Dots'
-  | 'Grunge01'
-  | 'Grunge02'
-  | 'None'
+export type TextureType = 'None' | 'Circuits' | 'Dots' | 'Dirty01' | 'Dirty02'
 
 export type EyeType =
   | 'Arturito'
