@@ -1,84 +1,363 @@
-# React component for Bottts
+# Bottts (Modern Fork)
 
-The core React component for [Bottts Generator](https://botttsgenerator.com/) developed by [Mack Etherington](https://twitter.com/MackEtherington), based on the Sketch library [Bottts](https://bottts.com/) designed by [Pablo Stanley](https://twitter.com/pablostanley). Forked and adapted from [Fang-Pen Lin](https://twitter.com/fangpenlin)'s [Avataaars](https://github.com/fangpenlin/avataaars).
+A modern React component library for generating customizable bot avatars. Built with TypeScript, React 19, and designed for Next.js compatibility.
 
-<p align="center"><img src='./bottts-example.png?raw=true' style='width: 300px; height: 300px;' /></p>
+> 🌟 This is a modernized fork of the original [bottts](https://github.com/mether/bottts) library by [Mackenzie Etherington](https://github.com/mether), updated for React 19 and modern development practices.
 
-## Features
+<p align="center">
+  <img src="./bottts-example.png" alt="Bottts Example" width="300" height="300" />
+</p>
 
- - SVG based
- - Light weight 
- - Scalable
- - Easy to use
- - Easy to integrate with custom editor
- - Comes with [official editor](https://botttsgenerator.com/)
+## ✨ Features
 
-## Usage
+- 🚀 **Modern React 19**: Built with the latest React features and patterns
+- 📱 **Next.js Ready**: Full SSR/SSG support for modern applications  
+- 🎨 **Highly Customizable**: Hundreds of combinations for unique avatars
+- 📦 **TypeScript First**: Complete type safety and IntelliSense support
+- 🌳 **Tree Shakeable**: Import only what you need
+- 📖 **Storybook**: Interactive component documentation
+- ✅ **Well Tested**: Comprehensive test coverage
+- 🔧 **Zero Dependencies**: Minimal runtime footprint
 
-First, you need to install the bottts component package, here you run
+## 📦 Installation
 
+```bash
+# npm
+npm install @plasticbugs/bottts
+
+# yarn  
+yarn add @plasticbugs/bottts
+
+# pnpm
+pnpm add @plasticbugs/bottts
 ```
-yarn add bottts
-```
 
-or
+## 🚀 Quick Start
 
-```
-npm install bottts --save
-```
+### Basic Usage
 
-if you are using npm. Then, in your React app, import the Bottt component and put it where you like it to be, for example
+```tsx
+import { Bot } from '@plasticbugs/bottts'
 
-```jsx
-import * as React from 'react'
-import Bot from 'bottts'
-
-export default class MyComponent extends React.Component {
-  render () {
-    return 
-      <div>
-        Your bot:
-        <Bot
-          style={{width: '100px', height: '100px'}}
-          botStyle='Circle'
-          circleColor='BlueGrey300'
-          topType='Bulb02'
-          topColor='BlueGrey500'
-          faceType='Square01'
-          faceColor='BlueGrey500'
-          textureType='Camo01'
-          eyeType='Round'
-          mouthType='Square01'
-          sideType='Square'
-          sidesColor='BlueGrey500'
-        />
-      </div>
-  }
+function MyComponent() {
+  return (
+    <Bot
+      botStyle="Circle"
+      circleColor="BlueGrey300"
+      topType="Bulb02"
+      topColor="BlueGrey500"
+      faceType="Square01"
+      faceColor="BlueGrey500"
+      eyeType="Round"
+      mouthType="Square01"
+      sideType="Square"
+      sidesColor="BlueGrey500"
+      size={240}
+    />
+  )
 }
 ```
 
-To showcase individual pieces of the bot you can use the Piece component, for example:
+### Using Individual Pieces
 
-```jsx
-import * as React from 'react'
-import {Piece} from 'bottts';
+```tsx
+import { Piece } from 'bottts'
 
-export default class MyComponent extends React.Component {
-  render () {
-    return 
-      <div>
-        <Piece botStyle='Circle' pieceType="top" pieceSize="100" topType="Bulb02" topColor="BlueGrey500"/>
-        <Piece botStyle='Circle' pieceType="face" pieceSize="100" faceType="Square01" faceColor="BlueGrey500" textureType="Camo01"/>
-        <Piece botStyle='Circle' pieceType="eye" pieceSize="100" eyeType="Round"/>
-        <Piece botStyle='Circle' pieceType="mouth" pieceSize="100" mouthType="Square01"/>
-        <Piece botStyle='Circle' pieceType="sides" pieceSize="100" sidesType="Square" sidesColor="BlueGrey500"/>
-      </div>
-  }
+function BotParts() {
+  return (
+    <div style={{ display: 'flex', gap: '10px' }}>
+      <Piece
+        pieceType="top"
+        botStyle="Circle"
+        topType="Bulb02"
+        topColor="BlueGrey500"
+        pieceSize={100}
+      />
+      <Piece
+        pieceType="face"
+        botStyle="Circle"
+        faceType="Square01"
+        faceColor="BlueGrey500"
+        pieceSize={100}
+      />
+      <Piece
+        pieceType="eye"
+        botStyle="Circle"
+        eyeType="Happy"
+        pieceSize={100}
+      />
+    </div>
+  )
 }
 ```
 
-To explore bot options and generate the React code, please use [Bottts Generator](https://botttsgenerator.com/)
+### With Context for Dynamic Updates
 
-## Collect options
+```tsx
+import { BotProvider, useBotContext } from 'bottts'
 
-To build your own avatar editor, you may want to use lower level `Bot` component along with `OptionContext`. For more details usage, please reference to source code of [bottts-generator](https://github.com/mether/bottts-geneator), see how it uses `OptionContext` to collection available options.
+function BotCustomizer() {
+  const { eyeType, updateOptions } = useBotContext()
+  
+  return (
+    <div>
+      <button 
+        onClick={() => updateOptions({ eyeType: 'Happy' })}
+      >
+        Make Happy
+      </button>
+      <p>Current eyes: {eyeType}</p>
+    </div>
+  )
+}
+
+function App() {
+  return (
+    <BotProvider initialOptions={{ botStyle: 'Circle' }}>
+      <Bot />
+      <BotCustomizer />
+    </BotProvider>
+  )
+}
+```
+
+## 🎨 Customization Options
+
+### Bot Styles
+- `Circle` - Circular background
+- `Transparent` - No background
+
+### Available Parts
+
+| Part | Options |
+|------|---------|
+| **Top** | Antenna, AntennaCrooked, Bulb01, Bulb02, GlowingBulb01, GlowingBulb02, Horns, Lights, Plankton, Pyramid, Radar |
+| **Face** | Arturito, RoboCop, Round01, Round02, Square01, Square02, Square03, Square04 |
+| **Eyes** | Arturito, Bulging, Dizzy, Eva, Frame01, Frame02, Glow, Hal, Happy, Hearts, RoboCop, Round, RoundFrame01, RoundFrame02, Sensor, Shades |
+| **Mouth** | Arturito, Bite, Diagram, Grill01, Grill02, Grill03, RoboCop, Smile01, Smile02, Square01, Square02 |
+| **Sides** | Antenna01, Antenna02, Cables01, Cables02, Round, Square, SquareAsymmetric |
+
+### Colors
+- Blue variants: `Blue01`, `Blue02`, `Blue03`
+- BlueGrey variants: `BlueGrey01`, `BlueGrey02`, `BlueGrey03`, `BlueGrey300`, `BlueGrey500`
+- Orange variants: `Orange01`, `Orange02`, `Orange03`  
+- Red variants: `Red01`, `Red02`, `Red03`
+- Yellow variants: `Yellow01`, `Yellow02`, `Yellow03`
+
+## 📚 API Reference
+
+### `Bot` Component
+
+```tsx
+interface BotProps {
+  botStyle: 'Circle' | 'Transparent'
+  circleColor?: CircleColor
+  topType?: TopType
+  topColor?: TopColor
+  faceType?: FaceType
+  faceColor?: FaceColor
+  textureType?: TextureType
+  eyeType?: EyeType
+  mouthType?: MouthType
+  sideType?: SideType
+  sidesColor?: SidesColor
+  size?: number
+  style?: React.CSSProperties
+  className?: string
+}
+```
+
+### `Piece` Component
+
+```tsx
+interface PieceProps extends BotOptions {
+  pieceType: 'top' | 'face' | 'eye' | 'mouth' | 'sides'
+  pieceSize?: string | number
+  style?: React.CSSProperties
+  className?: string
+}
+```
+
+### `BotProvider` & `useBotContext`
+
+```tsx
+// Provider
+interface BotProviderProps {
+  children: ReactNode
+  initialOptions?: Partial<BotOptions>
+}
+
+// Hook return type
+interface BotContextValue extends BotOptions {
+  updateOptions: (updates: Partial<BotOptions>) => void
+  resetOptions: () => void
+}
+```
+
+## 🏗️ Development
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start development
+pnpm run dev
+
+# Run tests
+pnpm run test
+
+# Run Storybook
+pnpm run storybook
+
+# Build library
+pnpm run build
+
+# Run linting
+pnpm run lint
+
+# Format code
+pnpm run format
+```
+
+## 🧪 Testing
+
+The library includes comprehensive tests using Vitest and React Testing Library:
+
+```bash
+# Run tests
+pnpm run test
+
+# Run tests with UI
+pnpm run test:ui
+
+# Run tests with coverage
+pnpm run test:coverage
+```
+
+## 📖 Storybook
+
+Interactive component documentation is available via Storybook:
+
+```bash
+# Start Storybook development server
+pnpm run storybook
+
+# Build static Storybook
+pnpm run build-storybook
+```
+
+## 🚀 Next.js Integration
+
+Bottts is fully compatible with Next.js applications:
+
+```tsx
+// pages/index.tsx or app/page.tsx
+import { Bot } from 'bottts'
+
+export default function HomePage() {
+  return (
+    <div>
+      <h1>My Bot</h1>
+      <Bot
+        botStyle="Circle"
+        faceType="Square01"
+        eyeType="Happy"
+        mouthType="Smile01"
+        size={200}
+      />
+    </div>
+  )
+}
+```
+
+### SSR/SSG Support
+
+The library is designed to work seamlessly with server-side rendering:
+
+- No client-side only dependencies
+- Proper SVG rendering in Node.js environments  
+- Hydration-safe components
+
+## 🔧 TypeScript
+
+Bottts is built with TypeScript and provides complete type definitions:
+
+```tsx
+import type { BotProps, PieceProps, BotStyle, EyeType } from 'bottts'
+
+const botConfig: BotProps = {
+  botStyle: 'Circle', // ✅ Type-safe
+  eyeType: 'Round',   // ✅ Autocomplete available
+  // invalidProp: true // ❌ TypeScript error
+}
+```
+
+## 🎨 Styling
+
+### Custom Styles
+
+```tsx
+<Bot
+  botStyle="Circle"
+  style={{ 
+    border: '2px solid #333',
+    borderRadius: '8px',
+    background: 'linear-gradient(45deg, #f0f0f0, #e0e0e0)' 
+  }}
+  className="my-custom-bot"
+/>
+```
+
+### CSS Classes
+
+The components include helpful CSS classes for styling:
+
+- `.bottt-svg` - Main SVG container
+- `.bottt-piece` - Individual piece container
+- `.bottt-piece--top` - Top piece specific
+- `.bottt-piece--face` - Face piece specific
+- etc.
+
+## 🌟 Migration from v1.x
+
+If you're upgrading from the original version, see our [Migration Guide](./MIGRATION.md) for breaking changes and upgrade instructions.
+
+### Key Changes
+
+- ✅ React 19 support
+- ✅ Modern hooks-based architecture  
+- ✅ TypeScript-first design
+- ✅ Tree-shakeable exports
+- ✅ Next.js compatibility
+- ❌ Dropped React < 19 support
+- ❌ Removed PropTypes (use TypeScript)
+- ❌ Changed import structure
+
+## 📄 License
+
+MIT © [Mackenzie Etherington](https://github.com/mether)
+
+## 🙏 Credits
+
+- Original design by [Pablo Stanley](https://twitter.com/pablostanley)
+- Based on the [Bottts](https://bottts.com/) Sketch library
+- Inspired by [Avataaars](https://github.com/fangpenlin/avataaars) by [Fang-Pen Lin](https://twitter.com/fangpenlin)
+- Modernized for React 19 and Next.js
+
+## 🤝 Contributing
+
+Contributions are welcome! Please read our [Contributing Guide](./CONTRIBUTING.md) for details.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 Changelog
+
+See [CHANGELOG.md](./CHANGELOG.md) for version history.
+
+---
+
+Made with ❤️ for the React community

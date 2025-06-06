@@ -1,0 +1,22 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "outDir": "./dist",
+    "declaration": true,
+    "declarationMap": false,
+    "sourceMap": true,
+    "allowImportingTsExtensions": false
+  },
+  "exclude": [
+    "node_modules",
+    "**/*.test.*",
+    "**/*.spec.*",
+    "**/*.stories.*",
+    "**/__tests__/**",
+    "dist",
+    "src/bot/**/*",
+    "src/options/**/*",
+    "src/index.tsx"
+  ]
+}

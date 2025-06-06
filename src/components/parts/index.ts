@@ -1,0 +1,6 @@
+export { CircleColor } from './CircleColor'
+export { Eyes } from './Eyes'
+export { Face } from './Face'
+export { Mouth } from './Mouth'
+export { Sides } from './Sides'
+export { Top } from './Top'

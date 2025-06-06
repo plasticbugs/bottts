@@ -1,0 +1,1 @@
+const o={parameters:{actions:{argTypesRegex:"^on[A-Z].*"},controls:{matchers:{color:/(background|color)$/i,date:/Date$/}},docs:{description:{component:"Bot avatar component library for modern React applications"}}}};export{o as default};

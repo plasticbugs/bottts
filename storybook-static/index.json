@@ -1,0 +1,140 @@
+{
+  "v": 5,
+  "entries": {
+    "components-bot--docs": {
+      "id": "components-bot--docs",
+      "title": "Components/Bot",
+      "name": "Docs",
+      "importPath": "./src/components/Bot/Bot.stories.tsx",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "components-bot--default": {
+      "type": "story",
+      "id": "components-bot--default",
+      "name": "Default",
+      "title": "Components/Bot",
+      "importPath": "./src/components/Bot/Bot.stories.tsx",
+      "componentPath": "./src/components/Bot/Bot.tsx",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "components-bot--happy": {
+      "type": "story",
+      "id": "components-bot--happy",
+      "name": "Happy",
+      "title": "Components/Bot",
+      "importPath": "./src/components/Bot/Bot.stories.tsx",
+      "componentPath": "./src/components/Bot/Bot.tsx",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "components-bot--serious": {
+      "type": "story",
+      "id": "components-bot--serious",
+      "name": "Serious",
+      "title": "Components/Bot",
+      "importPath": "./src/components/Bot/Bot.stories.tsx",
+      "componentPath": "./src/components/Bot/Bot.tsx",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "components-bot--retro": {
+      "type": "story",
+      "id": "components-bot--retro",
+      "name": "Retro",
+      "title": "Components/Bot",
+      "importPath": "./src/components/Bot/Bot.stories.tsx",
+      "componentPath": "./src/components/Bot/Bot.tsx",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "components-bot--small": {
+      "type": "story",
+      "id": "components-bot--small",
+      "name": "Small",
+      "title": "Components/Bot",
+      "importPath": "./src/components/Bot/Bot.stories.tsx",
+      "componentPath": "./src/components/Bot/Bot.tsx",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "components-bot--large": {
+      "type": "story",
+      "id": "components-bot--large",
+      "name": "Large",
+      "title": "Components/Bot",
+      "importPath": "./src/components/Bot/Bot.stories.tsx",
+      "componentPath": "./src/components/Bot/Bot.tsx",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "components-bot--transparent": {
+      "type": "story",
+      "id": "components-bot--transparent",
+      "name": "Transparent",
+      "title": "Components/Bot",
+      "importPath": "./src/components/Bot/Bot.stories.tsx",
+      "componentPath": "./src/components/Bot/Bot.tsx",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "components-piece--docs": {
+      "id": "components-piece--docs",
+      "title": "Components/Piece",
+      "name": "Docs",
+      "importPath": "./src/components/Piece/Piece.stories.tsx",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "components-piece--top-piece": {
+      "type": "story",
+      "id": "components-piece--top-piece",
+      "name": "Top Piece",
+      "title": "Components/Piece",
+      "importPath": "./src/components/Piece/Piece.stories.tsx",
+      "componentPath": "./src/components/Piece/Piece.tsx",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "components-piece--face-piece": {
+      "type": "story",
+      "id": "components-piece--face-piece",
+      "name": "Face Piece",
+      "title": "Components/Piece",
+      "importPath": "./src/components/Piece/Piece.stories.tsx",
+      "componentPath": "./src/components/Piece/Piece.tsx",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "components-piece--eye-piece": {
+      "type": "story",
+      "id": "components-piece--eye-piece",
+      "name": "Eye Piece",
+      "title": "Components/Piece",
+      "importPath": "./src/components/Piece/Piece.stories.tsx",
+      "componentPath": "./src/components/Piece/Piece.tsx",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "components-piece--mouth-piece": {
+      "type": "story",
+      "id": "components-piece--mouth-piece",
+      "name": "Mouth Piece",
+      "title": "Components/Piece",
+      "importPath": "./src/components/Piece/Piece.stories.tsx",
+      "componentPath": "./src/components/Piece/Piece.tsx",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "components-piece--sides-piece": {
+      "type": "story",
+      "id": "components-piece--sides-piece",
+      "name": "Sides Piece",
+      "title": "Components/Piece",
+      "importPath": "./src/components/Piece/Piece.stories.tsx",
+      "componentPath": "./src/components/Piece/Piece.tsx",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "components-piece--all-pieces": {
+      "type": "story",
+      "id": "components-piece--all-pieces",
+      "name": "All Pieces",
+      "title": "Components/Piece",
+      "importPath": "./src/components/Piece/Piece.stories.tsx",
+      "componentPath": "./src/components/Piece/Piece.tsx",
+      "tags": ["dev", "test", "autodocs"]
+    }
+  }
+}
