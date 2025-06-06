@@ -57,6 +57,13 @@ typings/
 # dotenv environment variables file
 .env
 
-#ide
+# Build output
+dist/
+build/
+
+# IDE
 /.idea
 /.vscode
+
+# Storybook
+storybook-static/

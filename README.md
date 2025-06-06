@@ -48,6 +48,7 @@ function MyComponent() {
       topColor="BlueGrey500"
       faceType="Square01"
       faceColor="BlueGrey500"
+      textureType="Circuits"
       eyeType="Round"
       mouthType="Square01"
       sideType="Square"
@@ -136,8 +137,12 @@ function App() {
 | **Eyes** | Arturito, Bulging, Dizzy, Eva, Frame01, Frame02, Glow, Hal, Happy, Hearts, RoboCop, Round, RoundFrame01, RoundFrame02, Sensor, Shades |
 | **Mouth** | Arturito, Bite, Diagram, Grill01, Grill02, Grill03, RoboCop, Smile01, Smile02, Square01, Square02 |
 | **Sides** | Antenna01, Antenna02, Cables01, Cables02, Round, Square, SquareAsymmetric |
+| **Texture** | None, Circuits, Dots, Dirty01, Dirty02 |
+
+> **Note**: Camo and Grunge texture types have been removed from this modern version to reduce bundle size. The remaining textures provide sufficient variety for most use cases.
 
 ### Colors
+All color properties (`circleColor`, `topColor`, `faceColor`, `sidesColor`) support these values:
 - Blue variants: `Blue01`, `Blue02`, `Blue03`
 - BlueGrey variants: `BlueGrey01`, `BlueGrey02`, `BlueGrey03`, `BlueGrey300`, `BlueGrey500`
 - Orange variants: `Orange01`, `Orange02`, `Orange03`  
@@ -151,17 +156,17 @@ function App() {
 ```tsx
 interface BotProps {
   botStyle: 'Circle' | 'Transparent'
-  circleColor?: CircleColor
-  topType?: TopType
-  topColor?: TopColor
-  faceType?: FaceType
-  faceColor?: FaceColor
-  textureType?: TextureType
-  eyeType?: EyeType
-  mouthType?: MouthType
-  sideType?: SideType
-  sidesColor?: SidesColor
-  size?: number
+  circleColor?: CircleColor  // Background color (Circle style only)
+  topType?: TopType         // Top accessory type
+  topColor?: TopColor       // Top accessory color
+  faceType?: FaceType       // Face shape type
+  faceColor?: FaceColor     // Face color overlay
+  textureType?: TextureType // Face texture overlay
+  eyeType?: EyeType         // Eye style
+  mouthType?: MouthType     // Mouth style
+  sideType?: SideType       // Side accessory type
+  sidesColor?: SidesColor   // Side accessory color
+  size?: number             // Size in pixels (default: 240)
   style?: React.CSSProperties
   className?: string
 }
@@ -283,12 +288,23 @@ The library is designed to work seamlessly with server-side rendering:
 Bottts is built with TypeScript and provides complete type definitions:
 
 ```tsx
-import type { BotProps, PieceProps, BotStyle, EyeType } from '@plasticbugs/bottts'
+import type { 
+  BotProps, 
+  PieceProps, 
+  BotStyle, 
+  EyeType, 
+  FaceType,
+  TopType,
+  CircleColor,
+  TextureType 
+} from '@plasticbugs/bottts'
 
 const botConfig: BotProps = {
-  botStyle: 'Circle', // ✅ Type-safe
-  eyeType: 'Round',   // ✅ Autocomplete available
-  // invalidProp: true // ❌ TypeScript error
+  botStyle: 'Circle',      // ✅ Type-safe
+  eyeType: 'Round',        // ✅ Autocomplete available
+  faceType: 'Square01',    // ✅ All options validated
+  topColor: 'BlueGrey500', // ✅ Color values enforced
+  // invalidProp: true     // ❌ TypeScript error
 }
 ```
 
@@ -344,9 +360,6 @@ MIT © [Mackenzie Etherington](https://github.com/mether)
 - Inspired by [Avataaars](https://github.com/fangpenlin/avataaars) by [Fang-Pen Lin](https://twitter.com/fangpenlin)
 - Modernized for React 19 and Next.js
 
-## 🤝 Contributing
-
-Contributions are welcome! Please read our [Contributing Guide](./CONTRIBUTING.md) for details.
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
@@ -360,4 +373,4 @@ See [CHANGELOG.md](./CHANGELOG.md) for version history.
 
 ---
 
-Made with ❤️ for the React community
+Made with 🤖 and with ❤️
