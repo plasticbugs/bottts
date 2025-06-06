@@ -158,60 +158,60 @@ const FaceRound02 = ({ id }: FaceComponentProps) => {
 }
 
 const FaceSquare02 = ({ id }: FaceComponentProps) => {
-  const pathName = `${id}-path-1`
-  const maskName = `${id}-mask-1`
+  const pathName = `${id}-path`
+  const maskName = `${id}-mask`
 
   return (
     <g id={id} stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-      <path
-        d="M12,0 L118,0 C124.627417,-1.21743675e-15 130,5.372583 130,12 L130,82 C130,102.98682 112.98682,120 92,120 L38,120 C17.0131795,120 2.57014425e-15,102.98682 0,82 L0,12 C-8.11624501e-16,5.372583 5.372583,1.21743675e-15 12,0 Z"
-        id={pathName}
-      />
       <defs>
-        <mask id={maskName} fill="white">
-          <use xlinkHref={`#${pathName}`} />
-        </mask>
+        <path
+          d="M12,0 L118,0 C124.627417,-1.21743675e-15 130,5.372583 130,12 L130,82 C130,102.98682 112.98682,120 92,120 L38,120 C17.0131795,120 2.57014425e-15,102.98682 0,82 L0,12 C-8.11624501e-16,5.372583 5.372583,1.21743675e-15 12,0 Z"
+          id={pathName}
+        />
       </defs>
+      <mask id={maskName} fill="white">
+        <use xlinkHref={`#${pathName}`} />
+      </mask>
       <use id="Shape" fill="#0076DE" xlinkHref={`#${pathName}`} />
     </g>
   )
 }
 
 const FaceSquare03 = ({ id }: FaceComponentProps) => {
-  const pathName = `${id}-path-1`
-  const maskName = `${id}-mask-1`
+  const pathName = `${id}-path`
+  const maskName = `${id}-mask`
 
   return (
     <g id={id} stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-      <path
-        d="M18,-2.7000624e-13 L112,-2.91322522e-13 C121.941125,-2.93148677e-13 130,8.0588745 130,18 L130,45.1482908 C130,49.6830734 129.22888,54.1848394 127.719613,58.4610955 L110.238555,107.990762 C107.698575,115.187372 100.896418,120 93.2647285,120 L36.7352715,120 C29.1035817,120 22.3014253,115.187372 19.7614455,107.990762 L2.28038666,58.4610955 C0.771119772,54.1848394 1.50531546e-15,49.6830734 -7.10542736e-15,45.1482908 L-9.9475983e-14,18 C-1.18352406e-13,8.0588745 8.0588745,-2.86048235e-13 18,-3.05533376e-13 Z"
-        id={pathName}
-      />
       <defs>
-        <mask id={maskName} fill="white">
-          <use xlinkHref={`#${pathName}`} />
-        </mask>
+        <path
+          d="M18,-2.7000624e-13 L112,-2.91322522e-13 C121.941125,-2.93148677e-13 130,8.0588745 130,18 L130,45.1482908 C130,49.6830734 129.22888,54.1848394 127.719613,58.4610955 L110.238555,107.990762 C107.698575,115.187372 100.896418,120 93.2647285,120 L36.7352715,120 C29.1035817,120 22.3014253,115.187372 19.7614455,107.990762 L2.28038666,58.4610955 C0.771119772,54.1848394 1.50531546e-15,49.6830734 -7.10542736e-15,45.1482908 L-9.9475983e-14,18 C-1.18352406e-13,8.0588745 8.0588745,-2.86048235e-13 18,-3.05533376e-13 Z"
+          id={pathName}
+        />
       </defs>
+      <mask id={maskName} fill="white">
+        <use xlinkHref={`#${pathName}`} />
+      </mask>
       <use id="Shape" fill="#0076DE" xlinkHref={`#${pathName}`} />
     </g>
   )
 }
 
 const FaceSquare04 = ({ id }: FaceComponentProps) => {
-  const pathName = `${id}-path-1`
-  const maskName = `${id}-mask-1`
+  const pathName = `${id}-path`
+  const maskName = `${id}-mask`
 
   return (
     <g id={id} stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-      <path
-        d="M0,102 L0,68.8517092 C8.61074282e-15,64.3169266 0.771119772,59.8151606 2.28038666,55.5389045 L19.7614455,12.0092379 C22.3014253,4.81262825 29.1035817,1.42108547e-14 36.7352715,1.42108547e-14 L93.2647285,0 C100.896418,0 107.698575,4.81262825 110.238555,12.0092379 L127.719613,55.5389045 C129.22888,59.8151606 130,64.3169266 130,68.8517092 L130,102 C130,111.941125 121.941125,120 112,120 L18,120 C8.0588745,120 -1.8876423e-14,111.941125 0,102 Z"
-        id={pathName}
-      />
       <defs>
-        <mask id={maskName} fill="white">
-          <use xlinkHref={`#${pathName}`} />
-        </mask>
+        <path
+          d="M0,102 L0,68.8517092 C8.61074282e-15,64.3169266 0.771119772,59.8151606 2.28038666,55.5389045 L19.7614455,12.0092379 C22.3014253,4.81262825 29.1035817,1.42108547e-14 36.7352715,1.42108547e-14 L93.2647285,0 C100.896418,0 107.698575,4.81262825 110.238555,12.0092379 L127.719613,55.5389045 C129.22888,59.8151606 130,64.3169266 130,68.8517092 L130,102 C130,111.941125 121.941125,120 112,120 L18,120 C8.0588745,120 -1.8876423e-14,111.941125 0,102 Z"
+          id={pathName}
+        />
       </defs>
+      <mask id={maskName} fill="white">
+        <use xlinkHref={`#${pathName}`} />
+      </mask>
       <use id="Shape" fill="#0076DE" xlinkHref={`#${pathName}`} />
     </g>
   )
