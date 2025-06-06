@@ -86,8 +86,45 @@ function Texture({ maskId }) {
     return jsxRuntime.jsx(TextureComponent, { id: `Texture/${textureType}`, maskId: maskId });
 }
 
-const FaceSquare01 = ({ id }) => (jsxRuntime.jsx("g", { id: id, stroke: "none", strokeWidth: "1", fill: "none", fillRule: "evenodd", children: jsxRuntime.jsx("g", { id: "Face", fill: "#607D8B", children: jsxRuntime.jsx("rect", { x: "0", y: "0", width: "130", height: "120", rx: "8" }) }) }));
-const FaceRound01 = ({ id }) => (jsxRuntime.jsx("g", { id: id, stroke: "none", strokeWidth: "1", fill: "none", fillRule: "evenodd", children: jsxRuntime.jsx("g", { id: "Face", fill: "#607D8B", children: jsxRuntime.jsx("rect", { x: "0", y: "0", width: "130", height: "120", rx: "65" }) }) }));
+const colorMap = {
+    Blue01: '#2196F3',
+    Blue02: '#03A9F4',
+    Blue03: '#3F51B5',
+    BlueGrey01: '#607D8B',
+    BlueGrey02: '#9E9E9E',
+    BlueGrey03: '#424242',
+    BlueGrey300: '#90A4AE',
+    BlueGrey500: '#607D8B',
+    Orange01: '#FF9800',
+    Orange02: '#FF5722',
+    Orange03: '#FFC107',
+    Red01: '#F44336',
+    Red02: '#E91E63',
+    Red03: '#9C27B0',
+    Yellow01: '#FFEB3B',
+    Yellow02: '#CDDC39',
+    Yellow03: '#8BC34A',
+};
+function CircleColor({ maskID, color = 'BlueGrey300', children, }) {
+    const fillColor = colorMap[color] || colorMap.BlueGrey300;
+    return (jsxRuntime.jsx("g", { id: `CircleColor-${color}`, mask: `url(#${maskID})`, fill: fillColor, children: children }));
+}
+
+function FaceColor({ maskID, children }) {
+    const { faceColor = 'BlueGrey500' } = useBotContext();
+    return (jsxRuntime.jsx(CircleColor, { maskID: maskID, color: faceColor, children: children }));
+}
+
+const FaceSquare01 = ({ id }) => {
+    const pathName = `${id}-path`;
+    const maskName = `${id}-mask`;
+    return (jsxRuntime.jsxs("g", { id: id, stroke: "none", strokeWidth: "1", fill: "none", fillRule: "evenodd", children: [jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("rect", { id: pathName, x: "0", y: "0", width: "130", height: "120", rx: "8" }) }), jsxRuntime.jsx("mask", { id: maskName, fill: "white", children: jsxRuntime.jsx("use", { xlinkHref: `#${pathName}` }) }), jsxRuntime.jsx("use", { id: "Face", fill: "#607D8B", xlinkHref: `#${pathName}` })] }));
+};
+const FaceRound01 = ({ id }) => {
+    const pathName = `${id}-path`;
+    const maskName = `${id}-mask`;
+    return (jsxRuntime.jsxs("g", { id: id, stroke: "none", strokeWidth: "1", fill: "none", fillRule: "evenodd", children: [jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("rect", { id: pathName, x: "0", y: "0", width: "130", height: "120", rx: "65" }) }), jsxRuntime.jsx("mask", { id: maskName, fill: "white", children: jsxRuntime.jsx("use", { xlinkHref: `#${pathName}` }) }), jsxRuntime.jsx("use", { id: "Face", fill: "#607D8B", xlinkHref: `#${pathName}` })] }));
+};
 const FaceArturito = ({ id }) => {
     const pathName = `${id}-path`;
     const maskName = `${id}-mask`;
@@ -137,7 +174,7 @@ function Face() {
     }
     const faceId = `Face/${faceType}`;
     const maskId = `${faceId}-mask`;
-    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(FaceComponent, { id: faceId }), jsxRuntime.jsx(Texture, { maskId: maskId })] }));
+    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(FaceComponent, { id: faceId }), jsxRuntime.jsx(FaceColor, { maskID: maskId, children: jsxRuntime.jsx("rect", { x: "0", y: "0", width: "130", height: "120" }) }), jsxRuntime.jsx(Texture, { maskId: maskId })] }));
 }
 
 const EyeRound = ({ id }) => (jsxRuntime.jsx("g", { id: id, stroke: "none", strokeWidth: "1", fill: "none", fillRule: "evenodd", children: jsxRuntime.jsxs("g", { id: "Eye", transform: "translate(18.000000, 24.000000)", fill: "#FFFFFF", children: [jsxRuntime.jsx("circle", { cx: "6", cy: "6", r: "6" }), jsxRuntime.jsx("circle", { cx: "62", cy: "6", r: "6" })] }) }));
@@ -231,8 +268,21 @@ function Mouth() {
     return jsxRuntime.jsx(MouthComponent, { id: `Mouth/${mouthType}` });
 }
 
-const SidesSquare = ({ id }) => (jsxRuntime.jsx("g", { id: id, stroke: "none", strokeWidth: "1", fill: "none", fillRule: "evenodd", children: jsxRuntime.jsxs("g", { id: "Sides", fill: "#607D8B", children: [jsxRuntime.jsx("rect", { x: "0", y: "0", width: "20", height: "76", rx: "4" }), jsxRuntime.jsx("rect", { x: "160", y: "0", width: "20", height: "76", rx: "4" })] }) }));
-const SidesRound = ({ id }) => (jsxRuntime.jsx("g", { id: id, stroke: "none", strokeWidth: "1", fill: "none", fillRule: "evenodd", children: jsxRuntime.jsxs("g", { id: "Sides", fill: "#607D8B", children: [jsxRuntime.jsx("ellipse", { cx: "10", cy: "38", rx: "10", ry: "38" }), jsxRuntime.jsx("ellipse", { cx: "170", cy: "38", rx: "10", ry: "38" })] }) }));
+function SidesColor({ maskID, children }) {
+    const { sidesColor = 'BlueGrey500' } = useBotContext();
+    return (jsxRuntime.jsx(CircleColor, { maskID: maskID, color: sidesColor, children: children }));
+}
+
+const SidesSquare = ({ id }) => {
+    const pathName = `${id}-path`;
+    const maskName = `${id}-mask`;
+    return (jsxRuntime.jsxs("g", { id: id, stroke: "none", strokeWidth: "1", fill: "none", fillRule: "evenodd", children: [jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("path", { id: pathName, d: "M0,0 L20,0 L20,76 L0,76 L0,0 Z M160,0 L180,0 L180,76 L160,76 L160,0 Z" }) }), jsxRuntime.jsx("mask", { id: maskName, fill: "white", children: jsxRuntime.jsx("use", { xlinkHref: `#${pathName}` }) }), jsxRuntime.jsx("use", { id: "Sides", fill: "#607D8B", xlinkHref: `#${pathName}` })] }));
+};
+const SidesRound = ({ id }) => {
+    const pathName = `${id}-path`;
+    const maskName = `${id}-mask`;
+    return (jsxRuntime.jsxs("g", { id: id, stroke: "none", strokeWidth: "1", fill: "none", fillRule: "evenodd", children: [jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("path", { id: pathName, d: "M10,0 C15.522847,0 20,17.0883464 20,38 C20,58.9116536 15.522847,76 10,76 C4.477153,76 0,58.9116536 0,38 C0,17.0883464 4.477153,0 10,0 Z M170,0 C175.522847,0 180,17.0883464 180,38 C180,58.9116536 175.522847,76 170,76 C164.477153,76 160,58.9116536 160,38 C160,17.0883464 164.477153,0 170,0 Z" }) }), jsxRuntime.jsx("mask", { id: maskName, fill: "white", children: jsxRuntime.jsx("use", { xlinkHref: `#${pathName}` }) }), jsxRuntime.jsx("use", { id: "Sides", fill: "#607D8B", xlinkHref: `#${pathName}` })] }));
+};
 const SidesAntenna01 = ({ id }) => (jsxRuntime.jsx("g", { id: id, stroke: "none", strokeWidth: "1", fill: "none", fillRule: "evenodd", children: jsxRuntime.jsxs("g", { id: "Sides", stroke: "#000000", strokeWidth: "2", children: [jsxRuntime.jsx("line", { x1: "10", y1: "10", x2: "30", y2: "0" }), jsxRuntime.jsx("line", { x1: "170", y1: "10", x2: "150", y2: "0" }), jsxRuntime.jsx("circle", { cx: "30", cy: "0", r: "2", fill: "#FF0000" }), jsxRuntime.jsx("circle", { cx: "150", cy: "0", r: "2", fill: "#FF0000" })] }) }));
 const SidesAntenna02 = ({ id }) => {
     const pathName = `${id}-path`;
@@ -270,31 +320,9 @@ function Sides() {
         console.warn(`Unknown sides type: ${sideType}`);
         return null;
     }
-    return jsxRuntime.jsx(SidesComponent, { id: `Sides/${sideType}` });
-}
-
-const colorMap = {
-    Blue01: '#2196F3',
-    Blue02: '#03A9F4',
-    Blue03: '#3F51B5',
-    BlueGrey01: '#607D8B',
-    BlueGrey02: '#9E9E9E',
-    BlueGrey03: '#424242',
-    BlueGrey300: '#90A4AE',
-    BlueGrey500: '#607D8B',
-    Orange01: '#FF9800',
-    Orange02: '#FF5722',
-    Orange03: '#FFC107',
-    Red01: '#F44336',
-    Red02: '#E91E63',
-    Red03: '#9C27B0',
-    Yellow01: '#FFEB3B',
-    Yellow02: '#CDDC39',
-    Yellow03: '#8BC34A',
-};
-function CircleColor({ maskID, color = 'BlueGrey300', children, }) {
-    const fillColor = colorMap[color] || colorMap.BlueGrey300;
-    return (jsxRuntime.jsx("g", { id: `CircleColor-${color}`, mask: `url(#${maskID})`, fill: fillColor, children: children }));
+    const sidesId = `Sides/${sideType}`;
+    const maskId = `${sidesId}-mask`;
+    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(SidesComponent, { id: sidesId }), jsxRuntime.jsx(SidesColor, { maskID: maskId, children: jsxRuntime.jsx("rect", { x: "0", y: "0", width: "180", height: "76" }) })] }));
 }
 
 // Modern TopColor component using CircleColor
