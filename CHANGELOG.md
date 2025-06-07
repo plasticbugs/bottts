@@ -7,7 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [2.0.0-alpha.1] - 2025-01-06
+## [2.0.0-alpha.5] - 2025-06-03
+- Feature complete
+- Remove Camo and Grunge textures to reduce bundle size
+- Fix BotContext to make it reactive
+
+## [2.0.0-alpha.1] - 2025-06-03
 
 ### 🚀 Added
 - **Modern React 19 Support**: Completely rewritten for React 19.1+ with modern hooks

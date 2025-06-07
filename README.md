@@ -334,9 +334,6 @@ The components include helpful CSS classes for styling:
 - `.bottt-piece--face` - Face piece specific
 - etc.
 
-## 🌟 Migration from v1.x
-
-If you're upgrading from the original version, see our [Migration Guide](./MIGRATION.md) for breaking changes and upgrade instructions.
 
 ### Key Changes
 
@@ -359,13 +356,6 @@ MIT © [Mackenzie Etherington](https://github.com/mether)
 - Based on the [Bottts](https://bottts.com/) Sketch library
 - Inspired by [Avataaars](https://github.com/fangpenlin/avataaars) by [Fang-Pen Lin](https://twitter.com/fangpenlin)
 - Modernized for React 19 and Next.js
-
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## 📝 Changelog
 
