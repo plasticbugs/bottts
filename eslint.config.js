@@ -21,6 +21,8 @@ export default [
         console: 'readonly',
         React: 'readonly',
         SVGSVGElement: 'readonly',
+        window: 'readonly',
+        document: 'readonly',
       },
     },
     plugins: {

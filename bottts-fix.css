@@ -1,0 +1,49 @@
+/* Bottts SVG Protection - Add this to prevent circle-to-square issues */
+
+/* Protect SVG rx attributes from being overridden by CSS resets */
+svg rect[rx] {
+  /* Ensure rx attribute takes precedence over CSS */
+  rx: attr(rx px) !important;
+}
+
+/* Mobile-specific protection */
+@media (max-width: 768px) {
+  /* Prevent global resets from affecting Bottts SVGs */
+  [data-bottts] svg rect,
+  .bottts svg rect,
+  svg.bottts rect {
+    rx: attr(rx px) !important;
+    border-radius: unset !important;
+  }
+  
+  /* Ensure proper SVG rendering on mobile Safari */
+  [data-bottts] svg,
+  .bottts svg,
+  svg.bottts {
+    box-sizing: content-box !important;
+    padding: 0 !important;
+  }
+}
+
+/* Fallback for browsers that don't support attr() */
+@supports not (rx: attr(rx px)) {
+  @media (max-width: 768px) {
+    [data-bottts] svg rect[rx="65"],
+    .bottts svg rect[rx="65"],
+    svg.bottts rect[rx="65"] {
+      rx: 65px !important;
+    }
+    
+    [data-bottts] svg rect[rx="50"],
+    .bottts svg rect[rx="50"], 
+    svg.bottts rect[rx="50"] {
+      rx: 50px !important;
+    }
+    
+    [data-bottts] svg rect[rx="33"],
+    .bottts svg rect[rx="33"],
+    svg.bottts rect[rx="33"] {
+      rx: 33px !important;
+    }
+  }
+}
